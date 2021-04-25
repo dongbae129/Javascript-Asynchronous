@@ -59,8 +59,9 @@
       가독성과 앞으로 로직변경에 힘들수 있나는점이 있다.
     
     * Promise는 비동기 처리에 사용되는 객체이다. 
-    
-        function getData() {
+
+````
+function getData() {
         
            return new Promise(function(resolve, reject) {
            
@@ -79,22 +80,20 @@
          
            console.log(err); // Error: Request is failed
          });
-         
-       Promise에서 함수를 하나 실행하는데 해당 함수는 resolve, reject라는 두개의 파라미터를 가지고 있다.
+````
+Promise에서 함수를 하나 실행하는데 해당 함수는 resolve, reject라는 두개의 파라미터를 가지고 있다.
        
-       서버작업을 하고 성공했을경우 resolve를 실패했을때는 reject를 실행시키며 resolve는 then()에, reject는 catch() 연결된다.
+서버작업을 하고 성공했을경우 resolve를 실패했을때는 reject를 실행시키며 resolve는 then()에, reject는 catch() 연결된다.
        
-       이렇게 Promise를 이용하여 서버와 비동기 통신을 하는 라이브러리인 axios가 존재한다
+이렇게 Promise를 이용하여 서버와 비동기 통신을 하는 라이브러리인 axios가 존재한다
        
-       axios.get().then().catch();
-       promise를 사용하기 때문에 동일하게 get이 성공하면 then을 실패하면 catch를 실행한다.
-       
-       
-       
+axios.get().then().catch();
+promise를 사용하기 때문에 동일하게 get이 성공하면 then을 실패하면 catch를 실행한다.       
     * async/await은 promise를 이용한 비동기 처리이다.
-    * 
-      //서버통신은 비동기처리로 작성되었다.
+    
+//서버통신은 비동기처리로 작성되었다.
       
+````      
       async function test(){
       
          try{
@@ -106,14 +105,15 @@
             에러 발생시 작성할 코드
           }
           }
+````
           
-       async는 해당 기법을 적용시킬 함수에 위치시킨다.
+   async는 해당 기법을 적용시킬 함수에 위치시킨다.
        
-       await은 비동기처리 앞에 위치시킨다.(await을 적용시키면 예를들어 서버통신을 하여 반환한 값이 들어온 후에 test1에 할당한다.)
+await은 비동기처리 앞에 위치시킨다.(await을 적용시키면 예를들어 서버통신을 하여 반환한 값이 들어온 후에 test1에 할당한다.)
        
-       만약 await을 적용시키지 않으면 서버통신이 비동기 처리이기 때문에 test1에는 undefined가 할당된다.
+만약 await을 적용시키지 않으면 서버통신이 비동기 처리이기 때문에 test1에는 undefined가 할당된다.
        
-       예외처리는 promise와 비슷하게 .catch()가 아닌 try/catch 문으로 적용시키면 된다.
+예외처리는 promise와 비슷하게 .catch()가 아닌 try/catch 문으로 적용시키면 된다.
        
          
          
